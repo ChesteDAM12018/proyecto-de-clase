@@ -1,9 +1,5 @@
 package veterinario;
 
-/**
- *
- * @author Javi Palacios <javi@fjp.es>
- */
 public class Veterinario {
 
     /**
