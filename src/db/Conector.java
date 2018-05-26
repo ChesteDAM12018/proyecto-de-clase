@@ -1,74 +1,71 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package db;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.sql.*;
+import java.util.Iterator;
 
 /**
- * Clase que permite realizar todas las acciones que requieran de una base de
- * datos, ya sea insertar datos eliminar datos obtener datos
  *
- * @author Nico Tena
- * @version 1.0
+ * @author alumno1718
  */
 public class Conector {
-
-    private Connection conector;
-    private ResultSet rs;
-    private Statement st;
-    private final String url;
+    
+    private static final String url = "jdbc:sqlite:veterinario.db";
+    private static PreparedStatement st;
 
     /**
-     * Conector principal que define el archivo de la base de datos y configura
-     * las conexiones.
+     * Configura el conector y la base de datos. En caso de que no exista el
+     * fichero de la base de datos SQLite, crea el archivo y la estructura de la
+     * base de datos correspondiente.
      *
-     * @throws java.sql.SQLException Si hay un problema a la hora de conectar o
-     * desconectar con la base de datos.
-     * @throws java.io.IOException Si hay un problema a la hora de abrir o
-     * modificar el fichero que contiene la base de datos.
+     * @return Devuelve el conector con los parámetros de conexión
+     * @throws java.sql.SQLException
+     * @throws IOException
      */
-    public Conector() throws SQLException, IOException {
+    public static Connection getConexion() throws SQLException, IOException {
         File db = new File("veterinario.db");
         if (!db.exists()) {
-            generaDB(db);
+            db.createNewFile();
+            configuraDB();
         }
-        url = "jdbc:sqlite:veterinario.db";
+        return DriverManager.getConnection(url);
     }
-
-    /**
-     * Abre la conexión a la base de datos
-     */
-    private void conecta() throws SQLException {
-        conector = DriverManager.getConnection(url);
-    }
-
-    /**
-     * Cierra la conexion a la base de datos y limpia los objetos usados
-     */
-    private void desconecta() throws SQLException {
-        if (rs != null) {
-            rs.close();
+    
+    static String leerScript(String script) throws FileNotFoundException {
+        String contenido = "";
+        File archivo = new File(script);
+        if (!archivo.exists()) {
+            throw new FileNotFoundException("El script especificado no existe");
         }
+        BufferedReader br = new BufferedReader(new FileReader("sql/" + script));
+        for (Iterator iterator = br.lines().iterator(); iterator.hasNext();) {
+            contenido += iterator.next() + "\n";
+        }
+        return contenido;
+    }
+    
+    static void cierraConexion(Statement st, ResultSet rs, Connection con) throws SQLException {
         if (st != null) {
             st.close();
         }
+        if (rs != null) {
+            rs.close();
+        }
+        if (con != null) {
+            con.close();
+        }
     }
-
-    /**
-     * Si el fichero .db no existe, se genera uno nuevo con todas las tablas
-     * generadas
-     *
-     * @param db el fichero que contiene la base de datos
-     */
-    private void generaDB(File db) throws SQLException, IOException {
-        String consulta = "";
-        conecta();
-        db.createNewFile();
-        st = conector.createStatement();
-        /**
-         * Insertar código sql para la generación de las tablas
-         */
-        st.execute(consulta);
-        desconecta();
+    
+    private static void configuraDB() throws SQLException, IOException {
+        Connection conexion = getConexion();
+        st = conexion.prepareStatement("");
+        st.executeUpdate(Scripts.CREA_DB.script());
+        cierraConexion(st, null, conexion);
     }
+    
 }
