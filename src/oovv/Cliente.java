@@ -1,7 +1,6 @@
 package oovv;
 
 import excepciones.DatosIncorrectosEX;
-import util.DNI;
 
 public class Cliente {
 
@@ -17,8 +16,7 @@ public class Cliente {
 
     public Cliente(String DNI, String nombre, String apellidos, String direccion,
             String telefono, String correo) throws DatosIncorrectosEX {
-        DNI DNIValido = new DNI();
-        if (!DNIValido.esDNI(this.DNI)) {
+        if (!util.DNI.esDNI(DNI)) {
             throw new DatosIncorrectosEX("El DNI introducido no es un DNI válido");
         }
         this.DNI = DNI;

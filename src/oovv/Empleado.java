@@ -17,8 +17,7 @@ public class Empleado {
 
     public Empleado(String nombre, String apellidos, String DNI, String telefono,
             double sueldo, Empleo empleo) throws DatosIncorrectosEX {
-        DNI DNIValido = new DNI();
-        if (!DNIValido.esDNI(this.DNI)) {
+        if (!util.DNI.esDNI(DNI)) {
             throw new DatosIncorrectosEX("El DNI introducido no es un DNI válido");
         }
         this.nombre = nombre;
