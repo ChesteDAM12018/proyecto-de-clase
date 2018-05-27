@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package db;
 
 import java.io.IOException;
@@ -45,9 +40,9 @@ public class ClienteDB extends Conector {
         st.setString(1, cliente.getDNI());
         st.setString(2, cliente.getNombre());
         st.setString(3, cliente.getApellidos());
-        st.setInt(4, cliente.getTelefono());
-        st.setString(5, cliente.getLocalidad());
-        st.setString(6, cliente.getEmail());
+        st.setString(4, cliente.getTelefono());
+        st.setString(5, cliente.getDireccion());
+        st.setString(6, cliente.getCorreo());
         st.executeUpdate();
         cierraConexion(st, rs, conexion);
     }
@@ -75,7 +70,7 @@ public class ClienteDB extends Conector {
         String nombre = rs.getString("nombre");
         String apellidos = rs.getString("apellidos");
         String direccion = rs.getString("direccion");
-        Integer telefono = rs.getInt("telefono");
+        String telefono = rs.getString("telefono");
         String correo = rs.getString("correo");
         return new Cliente(dni, nombre, apellidos, direccion, telefono, correo);
     }
@@ -93,9 +88,9 @@ public class ClienteDB extends Conector {
         st = conexion.prepareStatement(Scripts.MODIFICA_CLIENTE.script());
         st.setString(1, clientemod.getNombre());
         st.setString(2, clientemod.getApellidos());
-        st.setInt(3, clientemod.getTelefono());
-        st.setString(4, clientemod.getLocalidad());
-        st.setString(5, clientemod.getEmail());
+        st.setString(3, clientemod.getTelefono());
+        st.setString(4, clientemod.getDireccion());
+        st.setString(5, clientemod.getCorreo());
         st.executeUpdate();
         cierraConexion(st, rs, conexion);
     }
@@ -120,7 +115,7 @@ public class ClienteDB extends Conector {
             String nombre = rs.getString("nombre");
             String apellidos = rs.getString("apellidos");
             String direccion = rs.getString("direccion");
-            Integer telefono = rs.getInt("telefono");
+            String telefono = rs.getString("telefono");
             String correo = rs.getString("correo");
             c = new Cliente(dni, nombre, apellidos, direccion, telefono, correo);
             losClientes.add(c);

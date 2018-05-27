@@ -16,7 +16,7 @@ public enum Scripts {
     MODIFICA_CLIENTE("modificacliente.sql"),
     OBTENER_CLIENTE("obtenercliente.sql"), 
     OBTENER_CLIENTES("listaclientes.sql");
-    private String fichero;
+    private final String fichero;
 
     private Scripts(String fichero) {
         this.fichero = fichero;
