@@ -55,6 +55,7 @@ public class ClienteDB {
      * la base de datos.
      * @throws IOException Si existe algún problema con el fichero de la base de
      * datos
+     * @throws excepciones.DatosIncorrectosEX Si los datos que ha dado la base de datos son incorrectos
      */
     public static Cliente getCliente(String dni) throws SQLException, IOException, DatosIncorrectosEX {
         if (!DNI.esDNI(dni)) {
