@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import oovv.Cliente;
+import util.Archivos;
 import util.DNI;
 
 /**
@@ -32,7 +33,7 @@ public class ClienteDB {
      */
     public static void añadeCliente(Cliente cliente) throws SQLException, IOException {
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
-        PreparedStatement st = conector.getConexion().prepareStatement(Scripts.NUEVO_CLIENTE.script());
+        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.NUEVO_CLIENTE.script()));
         st.setString(1, cliente.getDNI());
         st.setString(2, cliente.getNombre());
         st.setString(3, cliente.getApellidos());
