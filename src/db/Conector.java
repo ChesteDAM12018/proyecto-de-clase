@@ -41,6 +41,7 @@ public class Conector {
                 } else {
                     this.conexion = DriverManager.getConnection(this.urlpruebas);
                 }
+                break;
             case FINAL:
                 this.conexion = DriverManager.getConnection(this.urlfinal, this.usuario, this.contraseña);
         }
