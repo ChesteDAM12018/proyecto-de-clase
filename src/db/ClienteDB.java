@@ -50,12 +50,13 @@ public class ClienteDB {
      *
      * @param dni el DNI del cliente que se quiere obtener
      * @return Un objeto Cliente con todos los datos obtenidos de la base de
-     * datos.
+     * datos o null si no existe el cliente
      * @throws SQLException Si existe algún problema a la hora de conectar con
      * la base de datos.
      * @throws IOException Si existe algún problema con el fichero de la base de
      * datos
-     * @throws excepciones.DatosIncorrectosEX Si los datos que ha dado la base de datos son incorrectos
+     * @throws excepciones.DatosIncorrectosEX Si los datos que ha dado la base
+     * de datos son incorrectos
      */
     public static Cliente getCliente(String dni) throws SQLException, IOException, DatosIncorrectosEX {
         if (!DNI.esDNI(dni)) {
@@ -66,7 +67,12 @@ public class ClienteDB {
         st.setString(1, dni);
         ResultSet rs = st.executeQuery();
         rs.next();
-        Cliente cliente = new Cliente(dni, rs.getString("nombre"), rs.getString("apellidos"), rs.getString("direccion"), rs.getString("telefono"), rs.getString("correo"));
+        Cliente cliente;
+        if (rs.getRow() == 1) {
+            cliente = new Cliente(dni, rs.getString("nombre"), rs.getString("apellidos"), rs.getString("direccion"), rs.getString("telefono"), rs.getString("correo"));
+        } else {
+            cliente = null;
+        }
         rs.close();
         st.close();
         conector.cierraConector();
