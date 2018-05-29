@@ -44,6 +44,11 @@ public class Conector {
         return this.conexion;
     }
 
+    /**
+     * Cierra la conexion que se crea al crear el objeto
+     *
+     * @throws SQLException Si da error al cerrar la conexion
+     */
     public void cierraConector() throws SQLException {
         this.conexion.close();
     }
