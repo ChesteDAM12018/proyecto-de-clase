@@ -1,7 +1,7 @@
 package db;
 
+import excepciones.DatosIncorrectosEX;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,11 +18,7 @@ import util.DNI;
  * @version 1.0
  * @author Nico Tena
  */
-public class ClienteDB extends Conector {
-
-    private static PreparedStatement st;
-    private static ResultSet rs;
-    private static Connection conexion;
+public class ClienteDB {
 
     /**
      * Añade el cliente pasado como parámetro a la base de datos.
@@ -35,8 +31,8 @@ public class ClienteDB extends Conector {
      * datos
      */
     public static void añadeCliente(Cliente cliente) throws SQLException, IOException {
-        conexion = Conector.getConexion();
-        st = conexion.prepareStatement(Scripts.NUEVO_CLIENTE.script());
+        Conector conector = new Conector(BasesDeDatos.PRUEBAS);
+        PreparedStatement st = conector.getConexion().prepareStatement(Scripts.NUEVO_CLIENTE.script());
         st.setString(1, cliente.getDNI());
         st.setString(2, cliente.getNombre());
         st.setString(3, cliente.getApellidos());
@@ -44,7 +40,8 @@ public class ClienteDB extends Conector {
         st.setString(5, cliente.getDireccion());
         st.setString(6, cliente.getCorreo());
         st.executeUpdate();
-        cierraConexion(st, rs, conexion);
+        st.close();
+        conector.cierraConector();
     }
 
     /**
@@ -58,21 +55,20 @@ public class ClienteDB extends Conector {
      * @throws IOException Si existe algún problema con el fichero de la base de
      * datos
      */
-    public static Cliente getCliente(String dni) throws SQLException, IOException {
+    public static Cliente getCliente(String dni) throws SQLException, IOException, DatosIncorrectosEX {
         if (!DNI.esDNI(dni)) {
             throw new SQLException("El dni debe tener 8 números y 1 letra");
         }
-        conexion = getConexion();
-        st = conexion.prepareStatement(Scripts.OBTENER_CLIENTE.script());
+        Conector conector = new Conector(BasesDeDatos.PRUEBAS);
+        PreparedStatement st = conector.getConexion().prepareStatement(Scripts.OBTENER_CLIENTE.script());
         st.setString(1, dni);
-        rs = st.executeQuery();
+        ResultSet rs = st.executeQuery();
         rs.next();
-        String nombre = rs.getString("nombre");
-        String apellidos = rs.getString("apellidos");
-        String direccion = rs.getString("direccion");
-        String telefono = rs.getString("telefono");
-        String correo = rs.getString("correo");
-        return new Cliente(dni, nombre, apellidos, direccion, telefono, correo);
+        Cliente cliente = new Cliente(dni, rs.getString("nombre"), rs.getString("apellidos"), rs.getString("direccion"), rs.getString("telefono"), rs.getString("correo"));
+        rs.close();
+        st.close();
+        conector.cierraConector();
+        return cliente;
     }
 
     /**
@@ -84,15 +80,16 @@ public class ClienteDB extends Conector {
      * @throws java.io.IOException
      */
     public static void modificaCliente(Cliente clientemod) throws SQLException, IOException {
-        conexion = getConexion();
-        st = conexion.prepareStatement(Scripts.MODIFICA_CLIENTE.script());
+        Conector conector = new Conector(BasesDeDatos.PRUEBAS);
+        PreparedStatement st = conector.getConexion().prepareStatement(Scripts.MODIFICA_CLIENTE.script());
         st.setString(1, clientemod.getNombre());
         st.setString(2, clientemod.getApellidos());
         st.setString(3, clientemod.getTelefono());
         st.setString(4, clientemod.getDireccion());
         st.setString(5, clientemod.getCorreo());
         st.executeUpdate();
-        cierraConexion(st, rs, conexion);
+        st.close();
+        conector.cierraConector();
     }
 
     /**
@@ -103,23 +100,19 @@ public class ClienteDB extends Conector {
      * la base de datos.
      * @throws IOException Si existe algún problema con el fichero de la base de
      * datos
+     * @throws excepciones.DatosIncorrectosEX
      */
-    public static List<Cliente> getClientes() throws SQLException, IOException {
+    public static List<Cliente> getClientes() throws SQLException, IOException, DatosIncorrectosEX {
+        Conector conector = new Conector(BasesDeDatos.PRUEBAS);
+        PreparedStatement st = conector.getConexion().prepareStatement(Scripts.OBTENER_CLIENTES.script());
+        ResultSet rs = st.executeQuery();
         List<Cliente> losClientes = new ArrayList<>();
-        conexion = getConexion();
-        st = conexion.prepareStatement(Scripts.OBTENER_CLIENTES.script());
-        rs = st.executeQuery();
         while (rs.next()) {
-            Cliente c;
-            String dni = rs.getString("dni");
-            String nombre = rs.getString("nombre");
-            String apellidos = rs.getString("apellidos");
-            String direccion = rs.getString("direccion");
-            String telefono = rs.getString("telefono");
-            String correo = rs.getString("correo");
-            c = new Cliente(dni, nombre, apellidos, direccion, telefono, correo);
-            losClientes.add(c);
+            losClientes.add(new Cliente(rs.getString("dni"), rs.getString("nombre"), rs.getString("apellidos"), rs.getString("direccion"), rs.getString("telefono"), rs.getString("correo")));
         }
+        rs.close();
+        st.close();
+        conector.cierraConector();
         return losClientes;
     }
 

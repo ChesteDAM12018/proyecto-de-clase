@@ -7,7 +7,7 @@ package db;
 
 import java.io.*;
 import java.sql.*;
-import java.util.Iterator;
+import util.Archivos;
 
 /**
  *
@@ -15,59 +15,37 @@ import java.util.Iterator;
  */
 public class Conector {
 
-    private static final String url = "jdbc:sqlite:veterinario.db";
-    private static PreparedStatement st;
+    private static Connection conexion;
 
     /**
-     * Configura el conector y la base de datos. En caso de que no exista el
-     * fichero de la base de datos SQLite, crea el archivo y la estructura de la
-     * base de datos correspondiente.
+     * Crea el conector. En caso de que no exista el fichero de la base de datos
+     * SQLite, crea el archivo y la estructura de la base de datos
+     * correspondiente.
      *
-     * @return Devuelve el conector con los parámetros de conexión
+     * @param base Indica si e ha de crear el conector de pruebas o el final
      * @throws java.sql.SQLException
      * @throws IOException
      */
-    public static Connection getConexion() throws SQLException, IOException {
-        File db = new File("veterinario.db");
-        if (!db.exists()) {
-            db.createNewFile();
-            configuraDB();
+    public Conector(BasesDeDatos base) throws SQLException, IOException {
+        switch (base) {
+            case PRUEBAS:
+                File db = new File("veterinario.db");
+                if (!db.exists()) {
+                    db.createNewFile();
+                    configuraDB();
+                }
+                this.conexion = DriverManager.getConnection("jdbc:sqlite:veterinario.db");
+            case FINAL:
+                this.conexion = DriverManager.getConnection("jdbc:mysql://sargantanacode.es:3306/damcheste?serverTimezone=UTC", "damcheste", "@lumn0");
         }
-        return DriverManager.getConnection(url);
     }
 
-    /**
-     * Lee un fichero de script y devuelve el contenido
-     *
-     * @param script el nombre del script. Tiene que ser uno de los scripts que
-     * se encuentran en la enumeración
-     * @see db.Scripts
-     * @return El contenido del fichero del script
-     * @throws FileNotFoundException Si el fichero no existe
-     */
-    static String leerScript(String script) throws FileNotFoundException {
-        String contenido = "";
-        File archivo = new File(script);
-        if (!archivo.exists()) {
-            throw new FileNotFoundException("El script especificado no existe");
-        }
-        BufferedReader br = new BufferedReader(new FileReader("sql/" + script));
-        for (Iterator iterator = br.lines().iterator(); iterator.hasNext();) {
-            contenido += iterator.next() + "\n";
-        }
-        return contenido;
+    public Connection getConexion() {
+        return this.conexion;
     }
 
-    static void cierraConexion(Statement st, ResultSet rs, Connection con) throws SQLException {
-        if (st != null) {
-            st.close();
-        }
-        if (rs != null) {
-            rs.close();
-        }
-        if (con != null) {
-            con.close();
-        }
+    public void cierraConector() throws SQLException {
+        this.conexion.close();
     }
 
     /**
@@ -78,11 +56,10 @@ public class Conector {
      * @throws IOException Si el fichero de la base de datos tiene algún tipo de
      * error
      */
-    private static void configuraDB() throws SQLException, IOException {
-        Connection conexion = getConexion();
-        st = conexion.prepareStatement("");
-        st.executeUpdate(Scripts.CREA_DB.script());
-        cierraConexion(st, null, conexion);
+    private void configuraDB() throws SQLException, IOException {
+        PreparedStatement st = this.conexion.prepareStatement("");
+        st.executeUpdate(Archivos.leerScript(Scripts.CREA_DB.script()));
+        st.close();
     }
 
 }
