@@ -32,9 +32,11 @@ public class Conector {
                 File db = new File("veterinario.db");
                 if (!db.exists()) {
                     db.createNewFile();
+                    this.conexion = DriverManager.getConnection("jdbc:sqlite:veterinario.db");
                     this.configuraDB();
+                } else {
+                    this.conexion = DriverManager.getConnection("jdbc:sqlite:veterinario.db");
                 }
-                this.conexion = DriverManager.getConnection("jdbc:sqlite:veterinario.db");
             case FINAL:
                 this.conexion = DriverManager.getConnection("jdbc:mysql://sargantanacode.es:3306/damcheste?serverTimezone=UTC", "damcheste", "@lumn0");
         }
@@ -67,6 +69,7 @@ public class Conector {
      * error
      */
     private void configuraDB() throws SQLException, IOException {
+        System.out.println(Archivos.leerScript(Scripts.CREA_DB.script()));
         PreparedStatement st = this.conexion.prepareStatement(Archivos.leerScript(Scripts.CREA_DB.script()));
         st.executeUpdate();
         st.close();
