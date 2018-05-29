@@ -40,6 +40,11 @@ public class Conector {
         }
     }
 
+    /**
+     * Getter para la conexion que se crea al crear el conector
+     *
+     * @return Una conexion de la clase Connection
+     */
     public Connection getConexion() {
         return this.conexion;
     }
