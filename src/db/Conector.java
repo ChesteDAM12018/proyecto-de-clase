@@ -17,7 +17,7 @@ public class Conector {
 
     private static Connection conexion;
     private static final String urlpruebas = "jdbc:sqlite:veterinario.db";
-    private static final String urlfinal = "jdbc:sqlite:veterinario.db";
+    private static final String urlfinal = "jdbc:mysql://sargantanacode.es:3306/damcheste?serverTimezone=UTC";
     private static final String usuario = "damcheste";
     private static final String contraseña = "@lumn0";
 
