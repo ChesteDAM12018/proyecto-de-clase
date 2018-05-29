@@ -32,7 +32,7 @@ public class Conector {
                 File db = new File("veterinario.db");
                 if (!db.exists()) {
                     db.createNewFile();
-                    configuraDB();
+                    this.configuraDB();
                 }
                 this.conexion = DriverManager.getConnection("jdbc:sqlite:veterinario.db");
             case FINAL:
