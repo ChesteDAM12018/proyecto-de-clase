@@ -82,7 +82,7 @@ public class ClienteDB {
      */
     public static void modificaCliente(Cliente clientemod) throws SQLException, IOException {
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
-        PreparedStatement st = conector.getConexion().prepareStatement(Scripts.MODIFICA_CLIENTE.script());
+        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.MODIFICA_CLIENTE.script()));
         st.setString(1, clientemod.getNombre());
         st.setString(2, clientemod.getApellidos());
         st.setString(3, clientemod.getTelefono());
