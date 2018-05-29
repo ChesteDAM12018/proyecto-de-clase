@@ -105,7 +105,7 @@ public class ClienteDB {
      */
     public static List<Cliente> getClientes() throws SQLException, IOException, DatosIncorrectosEX {
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
-        PreparedStatement st = conector.getConexion().prepareStatement(Scripts.OBTENER_CLIENTES.script());
+        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.OBTENER_CLIENTES.script()));
         ResultSet rs = st.executeQuery();
         List<Cliente> losClientes = new ArrayList<>();
         while (rs.next()) {
