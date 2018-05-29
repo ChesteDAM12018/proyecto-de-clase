@@ -57,8 +57,8 @@ public class Conector {
      * error
      */
     private void configuraDB() throws SQLException, IOException {
-        PreparedStatement st = this.conexion.prepareStatement("");
-        st.executeUpdate(Archivos.leerScript(Scripts.CREA_DB.script()));
+        PreparedStatement st = this.conexion.prepareStatement(Archivos.leerScript(Scripts.CREA_DB.script()));
+        st.executeUpdate();
         st.close();
     }
 
