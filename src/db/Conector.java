@@ -7,6 +7,8 @@ package db;
 
 import java.io.*;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import util.Archivos;
 
 /**
@@ -33,6 +35,11 @@ public class Conector {
     public Conector(BasesDeDatos base) throws SQLException, IOException {
         switch (base) {
             case PRUEBAS:
+                try {
+                    Class.forName("org.sqlite.JDBC");
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Conector.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 File db = new File("veterinario.db");
                 if (!db.exists()) {
                     db.createNewFile();
@@ -74,7 +81,6 @@ public class Conector {
      * error
      */
     private void configuraDB() throws SQLException, IOException {
-        System.out.println(Archivos.leerScript(Scripts.CREA_DB.script()));
         PreparedStatement st = this.conexion.prepareStatement(Archivos.leerScript(Scripts.CREA_DB.script()));
         st.executeUpdate();
         st.close();
