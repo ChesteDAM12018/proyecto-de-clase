@@ -16,6 +16,10 @@ import util.Archivos;
 public class Conector {
 
     private static Connection conexion;
+    private static final String urlpruebas = "jdbc:sqlite:veterinario.db";
+    private static final String urlfinal = "jdbc:sqlite:veterinario.db";
+    private static final String usuario = "damcheste";
+    private static final String contraseña = "@lumn0";
 
     /**
      * Crea el conector. En caso de que no exista el fichero de la base de datos
@@ -32,13 +36,13 @@ public class Conector {
                 File db = new File("veterinario.db");
                 if (!db.exists()) {
                     db.createNewFile();
-                    this.conexion = DriverManager.getConnection("jdbc:sqlite:veterinario.db");
+                    this.conexion = DriverManager.getConnection(this.urlpruebas);
                     this.configuraDB();
                 } else {
-                    this.conexion = DriverManager.getConnection("jdbc:sqlite:veterinario.db");
+                    this.conexion = DriverManager.getConnection(this.urlpruebas);
                 }
             case FINAL:
-                this.conexion = DriverManager.getConnection("jdbc:mysql://sargantanacode.es:3306/damcheste?serverTimezone=UTC", "damcheste", "@lumn0");
+                this.conexion = DriverManager.getConnection(this.urlfinal, this.usuario, this.contraseña);
         }
     }
 
