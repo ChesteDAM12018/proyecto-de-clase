@@ -1,6 +1,3 @@
-PRAGMA foreign_keys = off;
-BEGIN TRANSACTION;
-
 CREATE TABLE animales (
     chip   STRING      PRIMARY KEY,
     nombre STRING,
@@ -10,25 +7,19 @@ CREATE TABLE animales (
 );
 
 CREATE TABLE clientes (
-    dni       STRING (9)  PRIMARY KEY,
-    nombre    STRING      NOT NULL,
-    apellidos STRING      NOT NULL,
-    telefono  INTEGER (9),
+    dni       STRING (9) PRIMARY KEY,
+    nombre    STRING     NOT NULL,
+    apellidos STRING     NOT NULL,
+    telefono  STRING (9),
     localidad STRING,
     email     STRING
 );
 
 CREATE TABLE empleados (
-    DNI       STRING PRIMARY KEY,
-    Nombre    STRING NOT NULL,
-    Apellidos STRING NOT NULL,
-    tipo      STRING NOT NULL
+    dni       STRING     PRIMARY KEY,
+    nombre    STRING     NOT NULL,
+    apellidos STRING     NOT NULL,
+    telefono  STRING (9),
+    sueldo    DOUBLE     DEFAULT 600,
+    tipo      STRING     CONSTRAINT TIPO_CHK CHECK (UPPER(TIPO) IN ('VETERINARIO', 'ADMINISTRATIVO', 'AUXILIAR', 'RECEPCIONISTA') ) 
 );
-
-CREATE TABLE tipoempleados (
-    Empleo      STRING PRIMARY KEY,
-    Descripción STRING
-);
-
-COMMIT TRANSACTION;
-PRAGMA foreign_keys = on;
