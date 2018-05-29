@@ -61,7 +61,7 @@ public class ClienteDB {
             throw new SQLException("El dni debe tener 8 números y 1 letra");
         }
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
-        PreparedStatement st = conector.getConexion().prepareStatement(Scripts.OBTENER_CLIENTE.script());
+        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.OBTENER_CLIENTE.script()));
         st.setString(1, dni);
         ResultSet rs = st.executeQuery();
         rs.next();
