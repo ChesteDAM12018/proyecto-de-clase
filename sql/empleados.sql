@@ -8,3 +8,8 @@ INSERT INTO empleados(dni, nombre, apellidos ,telefono, sueldo, tipo) VALUES ('8
 INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('71358462Q', 'Kiko','Casas Perez','674526512','500','Recepcionista');
 INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('25468897D', 'Carmen','Pizzarra Mala','654963215','1400','Administrativo');
 INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('87452364R', 'Paco','Huerta Buena','774662158','1750','Veterinario');
+INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('05015377C', 'Ruba','Dubadu Bida','673781693','1000','Recepcionista');
+INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('95886096Q', 'Shavi','Saquet Baggins','687852613','4350','Veterinario');
+INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('78449177H', 'Manolo','Garcia Gonzalez','685778111','900','Auxiliar');
+INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('37968005L', 'Perico','Eldels Palots','752305444','1500','Administrativo');
+INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('32825934N', 'Rodrigo','Jimenez Jimeno','617053025','1200','Auxiliar');
