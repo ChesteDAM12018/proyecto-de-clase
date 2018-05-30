@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import oovv.Cliente;
 import oovv.Empleado;
 import oovv.Empleo;
 import util.Archivos;
@@ -72,5 +73,27 @@ public class EmpleadoDB {
         st.close();
         conector.cierraConector();
         return empleado;
+    }
+
+    /**
+     * Modifica los datos del cliente en la base de datos.
+     *
+     * @param empleadomod cliente con los datos a modificar.
+     * @throws SQLException Si existe algún error a la hora de actualizar los
+     * datos en la base de datos
+     * @throws java.io.IOException
+     */
+    public static void modificaEmpleado(Empleado empleadomod) throws SQLException, IOException {
+        Conector conector = new Conector(BasesDeDatos.PRUEBAS);
+        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.MODIFICA_EMPLEADO.script()));
+        st.setString(1, empleadomod.getNombre());
+        st.setString(2, empleadomod.getApellidos());
+        st.setString(3, empleadomod.getTelefono());
+        st.setDouble(4, empleadomod.getSueldo());
+        st.setString(5, empleadomod.getEmpleo().getEmpleo());
+        st.setString(6, empleadomod.getDNI());
+        st.executeUpdate();
+        st.close();
+        conector.cierraConector();
     }
 }
