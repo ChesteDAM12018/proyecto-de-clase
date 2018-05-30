@@ -25,7 +25,7 @@ public class EmpleadoDB {
      */
     public static void añadeEmpleado(Empleado empleado) throws SQLException, IOException {
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
-        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.NUEVO_CLIENTE.script()));
+        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.NUEVO_EMPLEADO.script()));
         st.setString(1, empleado.getDNI());
         st.setString(2, empleado.getNombre());
         st.setString(3, empleado.getApellidos());
