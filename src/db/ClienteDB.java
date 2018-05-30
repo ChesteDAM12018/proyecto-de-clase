@@ -95,6 +95,7 @@ public class ClienteDB {
         st.setString(3, clientemod.getTelefono());
         st.setString(4, clientemod.getDireccion());
         st.setString(5, clientemod.getCorreo());
+        st.setString(6, clientemod.getDNI());
         st.executeUpdate();
         st.close();
         conector.cierraConector();
