@@ -82,7 +82,7 @@ public class ClienteDB {
     /**
      * Modifica los datos del cliente en la base de datos.
      *
-     * @param clientemod cliente con los datos modificados.
+     * @param clientemod cliente con los datos a modificar.
      * @throws SQLException Si existe algún error a la hora de actualizar los
      * datos en la base de datos
      * @throws java.io.IOException
