@@ -53,7 +53,7 @@ public class EmpleadoDB {
      * @throws excepciones.DatosIncorrectosEX Si los datos que se han pasado no
      * son validos
      */
-    public static Empleado getCliente(String dni) throws SQLException, IOException, DatosIncorrectosEX {
+    public static Empleado getEmpleado(String dni) throws SQLException, IOException, DatosIncorrectosEX {
         if (!DNI.esDNI(dni)) {
             throw new DatosIncorrectosEX("El dni debe tener 8 números y 1 letra");
         }
