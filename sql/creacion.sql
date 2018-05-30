@@ -7,7 +7,7 @@ CREATE TABLE animales (
 );
 
 CREATE TABLE clientes (
-    dni       STRING (9) PRIMARY KEY,
+    dni       STRING (9) PRIMARY KEY CONSTRAINT DNI_CHK CHECK (LENGTH(dni) = 9 ),
     nombre    STRING     NOT NULL,
     apellidos STRING     NOT NULL,
     telefono  STRING (9),
@@ -16,7 +16,7 @@ CREATE TABLE clientes (
 );
 
 CREATE TABLE empleados (
-    dni       STRING (9) PRIMARY KEY,
+    dni       STRING (9) PRIMARY KEY CONSTRAINT DNI_CHK CHECK (LENGTH(dni) = 9 ),
     nombre    STRING     NOT NULL,
     apellidos STRING     NOT NULL,
     telefono  STRING (9),
