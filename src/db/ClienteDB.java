@@ -109,7 +109,8 @@ public class ClienteDB {
      * la base de datos.
      * @throws IOException Si existe algún problema con el fichero de la base de
      * datos
-     * @throws excepciones.DatosIncorrectosEX
+     * @throws excepciones.DatosIncorrectosEX Si los datos recibidos de la base
+     * de datos no son validos
      */
     public static List<Cliente> getClientes() throws SQLException, IOException, DatosIncorrectosEX {
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
