@@ -13,3 +13,8 @@ INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('9
 INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('78449177H', 'Manolo','Garcia Gonzalez','685778111','900','Auxiliar');
 INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('37968005L', 'Perico','Eldels Palots','752305444','1500','Administrativo');
 INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('32825934N', 'Rodrigo','Jimenez Jimeno','617053025','1200','Auxiliar');
+INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('84633204N', 'Ester','Colero Johansen','934124602','4578','Recepcionista');
+INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('20249873Y', 'Debora','Dora de Cabezas','917741056','1234','Veterinario');
+INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('60575333A', 'Lola','Mento Gonzalez','922244358','6343','Auxiliar');
+INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('61971914R', 'Elena','Nito Muñoz','958222959','6969','Administrativo');
+INSERT INTO empleados(dni, nombre, apellidos, telefono, sueldo, tipo) VALUES ('25093258M', 'Cindy','Nero Lopez','665737956','9696','Auxiliar');
