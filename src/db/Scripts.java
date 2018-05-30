@@ -16,7 +16,8 @@ public enum Scripts {
     MODIFICA_CLIENTE("modificacliente.sql"),
     OBTENER_CLIENTE("obtenercliente.sql"), 
     OBTENER_CLIENTES("listaclientes.sql"),
-    NUEVO_EMPLEADO("nuevoempleado.sql");
+    NUEVO_EMPLEADO("nuevoempleado.sql"),
+    OBTENER_EMPLEADO("obtenerempleado.sql");
     private final String fichero;
 
     private Scripts(String fichero) {
