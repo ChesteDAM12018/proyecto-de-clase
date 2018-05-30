@@ -1,3 +1,3 @@
 SELECT	*
 FROM	clientes
-where	dni = ?;
+WHERE	dni = ?;
