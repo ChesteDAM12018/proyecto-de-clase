@@ -66,9 +66,8 @@ public class ClienteDB {
         PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.OBTENER_CLIENTE.script()));
         st.setString(1, dni);
         ResultSet rs = st.executeQuery();
-        rs.next();
         Cliente cliente;
-        if (rs.getRow() == 1) {
+        if (rs.next()) {
             cliente = new Cliente(dni, rs.getString("nombre"), rs.getString("apellidos"), rs.getString("direccion"), rs.getString("telefono"), rs.getString("correo"));
         } else {
             cliente = null;
