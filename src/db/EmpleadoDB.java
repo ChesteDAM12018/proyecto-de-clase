@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import oovv.Empleado;
 import oovv.Empleo;
 import util.Archivos;
@@ -93,5 +95,30 @@ public class EmpleadoDB {
         st.executeUpdate();
         st.close();
         conector.cierraConector();
+    }
+
+    /**
+     * Obtiene una lista de todos los empleados registrados en la base de datos.
+     *
+     * @return Una lista de todos los empleados.
+     * @throws SQLException Si existe algún problema a la hora de conectar con
+     * la base de datos.
+     * @throws IOException Si existe algún problema con el fichero de la base de
+     * datos
+     * @throws excepciones.DatosIncorrectosEX Si los datos recibidos de la base
+     * de datos no son validos
+     */
+    public static List<Empleado> getEmpleados() throws SQLException, IOException, DatosIncorrectosEX {
+        Conector conector = new Conector(BasesDeDatos.PRUEBAS);
+        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.OBTENER_EMPLEADOS.script()));
+        ResultSet rs = st.executeQuery();
+        List<Empleado> losEmpleados = new ArrayList<>();
+        while (rs.next()) {
+            losEmpleados.add(new Empleado(rs.getString("nombre"), rs.getString("apellidos"), rs.getString("dni"), rs.getString("telefono"), rs.getDouble("sueldo"), Empleo.valueOf(rs.getString("tipo"))));
+        }
+        rs.close();
+        st.close();
+        conector.cierraConector();
+        return losEmpleados;
     }
 }
