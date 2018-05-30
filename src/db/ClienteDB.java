@@ -60,7 +60,7 @@ public class ClienteDB {
      */
     public static Cliente getCliente(String dni) throws SQLException, IOException, DatosIncorrectosEX {
         if (!DNI.esDNI(dni)) {
-            throw new SQLException("El dni debe tener 8 números y 1 letra");
+            throw new DatosIncorrectosEX("El dni debe tener 8 números y 1 letra");
         }
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
         PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.OBTENER_CLIENTE.script()));
