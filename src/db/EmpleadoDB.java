@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import oovv.Cliente;
 import oovv.Empleado;
 import oovv.Empleo;
 import util.Archivos;
@@ -62,9 +61,8 @@ public class EmpleadoDB {
         PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.OBTENER_EMPLEADO.script()));
         st.setString(1, dni);
         ResultSet rs = st.executeQuery();
-        rs.next();
         Empleado empleado;
-        if (rs.getRow() == 1) {
+        if (rs.next()) {
             empleado = new Empleado(rs.getString("nombre"), rs.getString("apellidos"), dni, rs.getString("telefono"), rs.getDouble("sueldo"), Empleo.valueOf(rs.getString("tipo")));
         } else {
             empleado = null;
