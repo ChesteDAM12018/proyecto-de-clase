@@ -3,7 +3,6 @@ package db;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import oovv.Cliente;
 import oovv.Empleado;
 import util.Archivos;
 
