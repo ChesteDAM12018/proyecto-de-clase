@@ -1,6 +1,6 @@
 UPDATE 	cliente 
 SET 	nombre = ?,
-		apellidos = ?,
-		telefono = ?,
-		localidad = ?,
-		email = ?;
+	apellidos = ?,
+	telefono = ?,
+	localidad = ?,
+	email = ?;
