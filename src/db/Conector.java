@@ -40,13 +40,10 @@ public class Conector {
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(Conector.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                File db = new File("veterinario.db");
-                if (!db.exists()) {
-                    db.createNewFile();
-                    this.conexion = DriverManager.getConnection(this.urlpruebas);
+                Boolean faltadb = !(new File("veterinario.db").exists());
+                this.conexion = DriverManager.getConnection(this.urlpruebas);
+                if (faltadb) {
                     this.configuraDB();
-                } else {
-                    this.conexion = DriverManager.getConnection(this.urlpruebas);
                 }
                 break;
             case FINAL:
