@@ -11,7 +11,7 @@ CREATE TABLE clientes (
     nombre    STRING     NOT NULL,
     apellidos STRING     NOT NULL,
     telefono  STRING (9),
-    localidad STRING,
+    direccion STRING,
     email     STRING
 );
 

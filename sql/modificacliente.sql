@@ -2,6 +2,6 @@ UPDATE 	cliente
 SET 	nombre = ?,
 	apellidos = ?,
 	telefono = ?,
-	localidad = ?,
+	direccion = ?,
 	email = ?
 WHERE   dni = ?;
