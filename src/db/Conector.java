@@ -14,10 +14,10 @@ import util.Archivos;
 public class Conector {
 
     private Connection conexion;
-    private static final String urlpruebas = "jdbc:sqlite:veterinario.db";
-    private static final String urlfinal = "jdbc:mysql://sargantanacode.es:3306/damcheste?serverTimezone=UTC";
-    private static final String usuario = "damcheste";
-    private static final String contraseña = "@lumn0";
+    private static final String JDBC_URLPRUEBAS = "jdbc:sqlite:veterinario.db";
+    private static final String JDBC_URLFINAL = "jdbc:mysql://sargantanacode.es:3306/damcheste?serverTimezone=UTC";
+    private static final String JDBC_USUARIO = "damcheste";
+    private static final String JDBC_CONTRASEÑA = "@lumn0";
 
     /**
      * Crea el conector. En caso de que no exista el fichero de la base de datos
@@ -37,13 +37,13 @@ public class Conector {
                     Logger.getLogger(Conector.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 Boolean faltadb = !(new File("veterinario.db").exists());
-                this.conexion = DriverManager.getConnection(this.urlpruebas);
+                this.conexion = DriverManager.getConnection(Conector.JDBC_URLPRUEBAS);
                 if (faltadb) {
                     this.configuraDB();
                 }
                 break;
             case FINAL:
-                this.conexion = DriverManager.getConnection(this.urlfinal, this.usuario, this.contraseña);
+                this.conexion = DriverManager.getConnection(Conector.JDBC_URLFINAL, Conector.JDBC_USUARIO, Conector.JDBC_CONTRASEÑA);
         }
     }
 
