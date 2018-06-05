@@ -2,13 +2,9 @@ package oovv;
 
 import excepciones.DatosIncorrectosEX;
 
-public class Cliente {
+public class Cliente extends Persona{
 
-    private String DNI;
-    private String nombre;
-    private String apellidos;
     private String direccion;
-    private String telefono;
     private String correo;
 
     public Cliente() {
