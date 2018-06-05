@@ -13,8 +13,12 @@ import util.Archivos;
 import util.DNI;
 
 /**
+ * Clase que controla las funciones de la base de datos a nivel empleados.
+ * <b>Clase no funcional, requiere que la clase Empleado exista.</b>
  *
- * @author alumno1718
+ * @see oovv.Empleado
+ * @version 1.0
+ * @author Alvaro
  */
 public class EmpleadoDB {
 
