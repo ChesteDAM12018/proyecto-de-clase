@@ -34,7 +34,7 @@ public class EmpleadoDB {
      */
     public static void añadeEmpleado(Empleado empleado) throws SQLException, IOException {
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
-        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.NUEVO_EMPLEADO.script()));
+        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.NUEVO_EMPLEADO));
         st.setString(1, empleado.getDNI());
         st.setString(2, empleado.getNombre());
         st.setString(3, empleado.getApellidos());
@@ -64,7 +64,7 @@ public class EmpleadoDB {
             throw new DatosIncorrectosEX("El dni debe tener 8 números y 1 letra");
         }
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
-        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.OBTENER_EMPLEADO.script()));
+        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.OBTENER_EMPLEADO));
         st.setString(1, dni);
         ResultSet rs = st.executeQuery();
         Empleado empleado;
@@ -89,7 +89,7 @@ public class EmpleadoDB {
      */
     public static void modificaEmpleado(Empleado empleadomod) throws SQLException, IOException {
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
-        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.MODIFICA_EMPLEADO.script()));
+        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.MODIFICA_EMPLEADO));
         st.setString(1, empleadomod.getNombre());
         st.setString(2, empleadomod.getApellidos());
         st.setString(3, empleadomod.getTelefono());
@@ -114,7 +114,7 @@ public class EmpleadoDB {
      */
     public static List<Empleado> getEmpleados() throws SQLException, IOException, DatosIncorrectosEX {
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
-        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.OBTENER_EMPLEADOS.script()));
+        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.OBTENER_EMPLEADOS));
         ResultSet rs = st.executeQuery();
         List<Empleado> losEmpleados = new ArrayList<>();
         while (rs.next()) {

@@ -33,7 +33,7 @@ public class ClienteDB {
      */
     public static void añadeCliente(Cliente cliente) throws SQLException, IOException {
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
-        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.NUEVO_CLIENTE.script()));
+        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.NUEVO_CLIENTE));
         st.setString(1, cliente.getDNI());
         st.setString(2, cliente.getNombre());
         st.setString(3, cliente.getApellidos());
@@ -63,7 +63,7 @@ public class ClienteDB {
             throw new DatosIncorrectosEX("El dni debe tener 8 números y 1 letra");
         }
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
-        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.OBTENER_CLIENTE.script()));
+        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.OBTENER_CLIENTE));
         st.setString(1, dni);
         ResultSet rs = st.executeQuery();
         Cliente cliente;
@@ -88,7 +88,7 @@ public class ClienteDB {
      */
     public static void modificaCliente(Cliente clientemod) throws SQLException, IOException {
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
-        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.MODIFICA_CLIENTE.script()));
+        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.MODIFICA_CLIENTE));
         st.setString(1, clientemod.getNombre());
         st.setString(2, clientemod.getApellidos());
         st.setString(3, clientemod.getTelefono());
@@ -113,7 +113,7 @@ public class ClienteDB {
      */
     public static List<Cliente> getClientes() throws SQLException, IOException, DatosIncorrectosEX {
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
-        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.OBTENER_CLIENTES.script()));
+        PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.OBTENER_CLIENTES));
         ResultSet rs = st.executeQuery();
         List<Cliente> losClientes = new ArrayList<>();
         while (rs.next()) {
