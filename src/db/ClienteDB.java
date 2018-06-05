@@ -68,7 +68,7 @@ public class ClienteDB {
         ResultSet rs = st.executeQuery();
         Cliente cliente;
         if (rs.next()) {
-            cliente = new Cliente(dni, rs.getString("nombre"), rs.getString("apellidos"), rs.getString("direccion"), rs.getString("telefono"), rs.getString("correo"));
+            cliente = new Cliente(dni, rs.getString("nombre"), rs.getString("apellidos"), rs.getString("direccion"), rs.getString("telefono"), rs.getString("email"));
         } else {
             cliente = null;
         }
@@ -117,7 +117,7 @@ public class ClienteDB {
         ResultSet rs = st.executeQuery();
         List<Cliente> losClientes = new ArrayList<>();
         while (rs.next()) {
-            losClientes.add(new Cliente(rs.getString("dni"), rs.getString("nombre"), rs.getString("apellidos"), rs.getString("direccion"), rs.getString("telefono"), rs.getString("correo")));
+            losClientes.add(new Cliente(rs.getString("dni"), rs.getString("nombre"), rs.getString("apellidos"), rs.getString("direccion"), rs.getString("telefono"), rs.getString("email")));
         }
         rs.close();
         st.close();
