@@ -46,31 +46,46 @@ public class Ventanactr extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tapantalla.setColumns(20);
+        tapantalla.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         tapantalla.setRows(5);
         jScrollPane1.setViewportView(tapantalla);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        bAñade.setBackground(new java.awt.Color(204, 255, 255));
+        bAñade.setFont(new java.awt.Font("Aharoni", 0, 14)); // NOI18N
         bAñade.setText("Añadir");
         bAñade.setActionCommand("añadir");
 
+        bElimina.setBackground(new java.awt.Color(204, 255, 255));
+        bElimina.setFont(new java.awt.Font("Aharoni", 0, 14)); // NOI18N
         bElimina.setText("Eliminar");
         bElimina.setActionCommand("eliminar");
 
+        bModifica.setBackground(new java.awt.Color(204, 255, 255));
+        bModifica.setFont(new java.awt.Font("Aharoni", 0, 14)); // NOI18N
         bModifica.setText("Modificar");
         bModifica.setActionCommand("modificar");
 
+        bListar.setBackground(new java.awt.Color(204, 255, 255));
+        bListar.setFont(new java.awt.Font("Aharoni", 0, 14)); // NOI18N
         bListar.setText("Listar");
         bListar.setActionCommand("listar");
 
+        rbCliente.setBackground(new java.awt.Color(204, 255, 255));
         buttonGroup1.add(rbCliente);
+        rbCliente.setFont(new java.awt.Font("Aharoni", 0, 14)); // NOI18N
         rbCliente.setText("Cliente");
 
+        rbTrabajador.setBackground(new java.awt.Color(204, 255, 255));
         buttonGroup1.add(rbTrabajador);
+        rbTrabajador.setFont(new java.awt.Font("Aharoni", 0, 14)); // NOI18N
         rbTrabajador.setSelected(true);
         rbTrabajador.setText("Trabajador");
 
-        btatras.setText("Atrás");
+        btatras.setFont(new java.awt.Font("Aharoni", 0, 14)); // NOI18N
+        btatras.setText("Atras");
         btatras.setActionCommand("atras");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -80,17 +95,19 @@ public class Ventanactr extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rbTrabajador)
-                    .addComponent(rbCliente)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(bAñade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bListar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bModifica, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bElimina, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(102, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btatras)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btatras))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(bAñade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bListar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bModifica, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bElimina, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(rbTrabajador)
+                            .addComponent(rbCliente))
+                        .addGap(0, 92, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -104,11 +121,11 @@ public class Ventanactr extends javax.swing.JDialog {
                 .addComponent(bModifica)
                 .addGap(18, 18, 18)
                 .addComponent(bListar)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addComponent(rbCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(rbTrabajador)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                 .addComponent(btatras)
                 .addContainerGap())
         );
@@ -121,7 +138,7 @@ public class Ventanactr extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(

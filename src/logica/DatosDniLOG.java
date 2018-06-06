@@ -5,23 +5,22 @@
  */
 package logica;
 
-import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import vista.DatosClientev;
+import vista.DatosDNI;
 
 /**
  *
  * @author ruben
  */
-public class DatosLog implements ActionListener {
+public class DatosDniLOG implements ActionListener {
 
-    private DatosClientev ventana;
-    private Frame parent;
+    private DatosDNI ventana;
+    private VentanaLOGctr ctl;
+    private String dni;
 
-    public DatosLog(Frame parent) {
-        this.parent = parent;
-        ventana = new DatosClientev(parent, true);
+    public DatosDniLOG() {
+        ventana = new DatosDNI();
         ventana.setOyente(this);
         ventana.setLocationRelativeTo(ventana);
         ventana.setVisible(true);
@@ -30,13 +29,14 @@ public class DatosLog implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
-            case "validar":
-                
-                ventana.dispose();
+            case "Validar":
+                    dni = ventana.getDni();
+                    ctl = new VentanaLOGctr(ventana);
+                    System.out.println(dni);
+                    System.exit(0);
                 break;
-            case "cancelar":
-                
-                ventana.dispose();
+            case "Cancelar":
+                    System.exit(0);
                 break;
         }
     }

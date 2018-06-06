@@ -61,7 +61,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="ValidarB" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="83" max="32767" attributes="0"/>
+                          <EmptySpace pref="104" max="32767" attributes="0"/>
                           <Component id="CancelarB" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -170,42 +170,42 @@
         <Component class="javax.swing.JTextField" name="jSueldo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jContrato">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jDNI">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTel&#xe9;fono">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTipo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="bNombre">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nombre"/>
           </Properties>
@@ -213,7 +213,7 @@
         <Component class="javax.swing.JLabel" name="bApellidos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Apellidos"/>
           </Properties>
@@ -221,7 +221,7 @@
         <Component class="javax.swing.JLabel" name="bDNI">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="DNI"/>
           </Properties>
@@ -229,7 +229,7 @@
         <Component class="javax.swing.JLabel" name="bTel&#xe9;fono">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Tel&#xe9;fono"/>
           </Properties>
@@ -237,7 +237,7 @@
         <Component class="javax.swing.JLabel" name="bTipo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Tipo"/>
           </Properties>
@@ -245,7 +245,7 @@
         <Component class="javax.swing.JLabel" name="bSueldo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sueldo"/>
           </Properties>
@@ -253,7 +253,7 @@
         <Component class="javax.swing.JLabel" name="bContrato">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Expiracion de contrato"/>
           </Properties>
@@ -261,7 +261,7 @@
         <Component class="javax.swing.JTextField" name="jNombre">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
           </Properties>
           <Events>
@@ -271,14 +271,14 @@
         <Component class="javax.swing.JTextField" name="jApellidos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="ValidarB">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Validar"/>
           </Properties>
@@ -286,7 +286,7 @@
         <Component class="javax.swing.JButton" name="CancelarB">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="11" style="0"/>
+              <Font name="Aharoni" size="13" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>

@@ -8,18 +8,18 @@ package logica;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import vista.DatosTrabajador;
+import vista.DatosEmpleado;
 
 /**
  *
  * @author ruben
  */
-public class DatosTrabLOG implements ActionListener{
+public class DatosEmpleadoLOG implements ActionListener{
 
-    private DatosTrabajador ventana;
+    private DatosEmpleado ventana;
 
-    public DatosTrabLOG(Frame parent) {
-        ventana = new DatosTrabajador(parent, true);
+    public DatosEmpleadoLOG(Frame parent) {
+        ventana = new DatosEmpleado(parent, true);
         ventana.setOyente(this);
         ventana.setLocationRelativeTo(parent);
         ventana.setVisible(true);

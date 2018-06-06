@@ -6,19 +6,19 @@
 package vista;
 
 import java.awt.event.ActionListener;
-import logica.DatosLog;
-import logica.DatosTrabLOG;
+import logica.DatosClienteLOG;
+import logica.DatosEmpleadoLOG;
 
 /**
  *
  * @author ruben
  */
-public class DatosTrabajador extends javax.swing.JDialog {
+public class DatosEmpleado extends javax.swing.JDialog {
 
     /**
      * Creates new form DatosTrabajador
      */
-    public DatosTrabajador(java.awt.Frame parent, boolean modal) {
+    public DatosEmpleado(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -55,50 +55,50 @@ public class DatosTrabajador extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jSueldo.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        jSueldo.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
 
-        jContrato.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        jContrato.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
 
-        jDNI.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        jDNI.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
 
-        jTeléfono.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        jTeléfono.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
 
-        jTipo.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        jTipo.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
 
-        bNombre.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        bNombre.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         bNombre.setText("Nombre");
 
-        bApellidos.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        bApellidos.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         bApellidos.setText("Apellidos");
 
-        bDNI.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        bDNI.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         bDNI.setText("DNI");
 
-        bTeléfono.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        bTeléfono.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         bTeléfono.setText("Teléfono");
 
-        bTipo.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        bTipo.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         bTipo.setText("Tipo");
 
-        bSueldo.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        bSueldo.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         bSueldo.setText("Sueldo");
 
-        bContrato.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        bContrato.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         bContrato.setText("Expiracion de contrato");
 
-        jNombre.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        jNombre.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         jNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jNombreActionPerformed(evt);
             }
         });
 
-        jApellidos.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        jApellidos.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
 
-        ValidarB.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        ValidarB.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         ValidarB.setText("Validar");
 
-        CancelarB.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        CancelarB.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         CancelarB.setText("Cancelar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -110,7 +110,7 @@ public class DatosTrabajador extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(ValidarB)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                         .addComponent(CancelarB))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,19 +228,20 @@ public class DatosTrabajador extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DatosTrabajador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DatosTrabajador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DatosTrabajador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DatosTrabajador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(() -> {
-            DatosTrabajador dialog = new DatosTrabajador(new javax.swing.JFrame(), true);
+            DatosEmpleado dialog = new DatosEmpleado(new javax.swing.JFrame(), true);
             dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosing(java.awt.event.WindowEvent e) {
@@ -300,7 +301,7 @@ public class DatosTrabajador extends javax.swing.JDialog {
         return jContrato.getText();
     }
 
-    public void setOyente(DatosTrabLOG oyente) {
+    public void setOyente(DatosEmpleadoLOG oyente) {
         ValidarB.addActionListener(oyente);
         CancelarB.addActionListener(oyente);
     }

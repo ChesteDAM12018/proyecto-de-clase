@@ -6,18 +6,18 @@
 package vista;
 
 import java.awt.event.ActionListener;
-import logica.DatosLog;
+import logica.DatosClienteLOG;
 
 /**
  *
  * @author ruben
  */
-public class DatosClientev extends javax.swing.JDialog {
+public class DatosCliente extends javax.swing.JDialog {
 
     /**
      * Creates new form DatosCliente
      */
-    public DatosClientev(java.awt.Frame parent, boolean modal) {
+    public DatosCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -53,40 +53,40 @@ public class DatosClientev extends javax.swing.JDialog {
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         jLabel1.setText("DNI");
 
-        tfdni.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        tfdni.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
 
-        tfnombre.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        tfnombre.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         jLabel2.setText("Nombre");
 
-        jLabel3.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         jLabel3.setText("Apellidos");
 
-        tfapellidos.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        tfapellidos.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
 
-        tfdireccion.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        tfdireccion.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         jLabel4.setText("Direccion");
 
-        jLabel5.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         jLabel5.setText("Telofono");
 
-        tftelefono.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        tftelefono.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
 
-        tfcorreo.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        tfcorreo.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         jLabel6.setText("Correo");
 
-        bvalidar.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        bvalidar.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         bvalidar.setText("Validar");
 
-        bcancelar.setFont(new java.awt.Font("Aharoni", 0, 11)); // NOI18N
+        bcancelar.setFont(new java.awt.Font("Aharoni", 0, 13)); // NOI18N
         bcancelar.setText("Cancelar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -201,14 +201,18 @@ public class DatosClientev extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DatosClientev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DatosClientev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DatosClientev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DatosClientev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -217,7 +221,7 @@ public class DatosClientev extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DatosClientev dialog = new DatosClientev(new javax.swing.JFrame(), true);
+                DatosCliente dialog = new DatosCliente(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -273,7 +277,7 @@ public class DatosClientev extends javax.swing.JDialog {
         return tfdni.getText();
     }
 
-    public void setOyente(DatosLog oyente) {
+    public void setOyente(DatosClienteLOG oyente) {
 bvalidar.addActionListener((ActionListener) oyente);
 bcancelar.addActionListener((ActionListener) oyente);
     }
