@@ -1,35 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package db;
 
 /**
- * @author Nico Tena
- * Enumeración con los posibles scripts que pueden lanzarse a la base de datos
+ * Clase con los posibles scripts que pueden lanzarse a la base de datos
+ *
+ * @author Alvaro
  */
-public enum Scripts {
+public final class Scripts {
 
-    CREA_DB("creacion.sql"),
-    NUEVO_CLIENTE("nuevocliente.sql"),
-    MODIFICA_CLIENTE("modificacliente.sql"),
-    OBTENER_CLIENTE("obtenercliente.sql"), 
-    OBTENER_CLIENTES("listaclientes.sql");
-    private final String fichero;
-
-    private Scripts(String fichero) {
-        this.fichero = fichero;
-    }
-
-    /**
-     * Método que obtiene el nombre del fichero del script seleccionado en la
-     * enumeración
-     *
-     * @return nombre del fichero
-     */
-    public String script() {
-        return fichero;
-    }
-
+    public final static String CREAR_DB = "creacion.sql";
+    public final static String NUEVO_CLIENTE = "nuevocliente.sql";
+    public final static String MODIFICA_CLIENTE = "modificacliente.sql";
+    public final static String OBTENER_CLIENTE = "obtenercliente.sql";
+    public final static String OBTENER_CLIENTES = "listaclientes.sql";
+    public final static String NUEVO_EMPLEADO = "nuevoempleado.sql";
+    public final static String MODIFICA_EMPLEADO = "modificaempleado.sql";
+    public final static String OBTENER_EMPLEADO = "obtenerempleado.sql";
+    public final static String OBTENER_EMPLEADOS = "listaempleados.sql";
 }

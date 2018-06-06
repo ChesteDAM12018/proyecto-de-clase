@@ -5,8 +5,12 @@
  */
 package logica;
 
+import db.EmpleadoDB;
+import excepciones.DatosIncorrectosEX;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.sql.SQLException;
 import vista.VentanaP;
 
 /**
@@ -28,15 +32,25 @@ public class VentanaLOG implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        switch (e.getActionCommand()) {
-            case "Validar":
+        try {
+            switch (e.getActionCommand()) {
+                case "Validar":
                     dni = ventana.getDni();
-                    ctl = new VentanaLOGctr(ventana);
+                    if (EmpleadoDB.getEmpleado(dni) != null) {
+                        ctl = new VentanaLOGctr(ventana);
+                    } else {
+                        ventana.error("El DNI no corresponde con el de ningún empleado");
+                    }
                     System.out.println(dni);
-                break;
-            case "Cancelar":
+                    break;
+                case "Cancelar":
                     System.exit(0);
-                break;
+                    break;
+            }
+        } catch (SQLException sQLException) {
+        } catch (IOException iOException) {
+        } catch (DatosIncorrectosEX ex) {
+            ventana.error(ex.getMessage());
         }
     }
 

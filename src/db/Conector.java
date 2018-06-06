@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package db;
 
 import java.io.*;
@@ -12,16 +7,17 @@ import java.util.logging.Logger;
 import util.Archivos;
 
 /**
+ * Clase para conectar a la base de datos
  *
- * @author alumno1718
+ * @author Nico Tena, Alvaro
  */
 public class Conector {
 
-    private static Connection conexion;
-    private static final String urlpruebas = "jdbc:sqlite:veterinario.db";
-    private static final String urlfinal = "jdbc:mysql://sargantanacode.es:3306/damcheste?serverTimezone=UTC";
-    private static final String usuario = "damcheste";
-    private static final String contraseña = "@lumn0";
+    private Connection conexion;
+    private static final String JDBC_URLPRUEBAS = "jdbc:sqlite:veterinario.db";
+    private static final String JDBC_URLFINAL = "jdbc:mysql://sargantanacode.es:3306/damcheste?serverTimezone=UTC";
+    private static final String JDBC_USUARIO = "damcheste";
+    private static final String JDBC_CONTRASEÑA = "@lumn0";
 
     /**
      * Crea el conector. En caso de que no exista el fichero de la base de datos
@@ -40,17 +36,14 @@ public class Conector {
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(Conector.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                File db = new File("veterinario.db");
-                if (!db.exists()) {
-                    db.createNewFile();
-                    this.conexion = DriverManager.getConnection(this.urlpruebas);
+                Boolean faltadb = !(new File("veterinario.db").exists());
+                this.conexion = DriverManager.getConnection(Conector.JDBC_URLPRUEBAS);
+                if (faltadb) {
                     this.configuraDB();
-                } else {
-                    this.conexion = DriverManager.getConnection(this.urlpruebas);
                 }
                 break;
             case FINAL:
-                this.conexion = DriverManager.getConnection(this.urlfinal, this.usuario, this.contraseña);
+                this.conexion = DriverManager.getConnection(Conector.JDBC_URLFINAL, Conector.JDBC_USUARIO, Conector.JDBC_CONTRASEÑA);
         }
     }
 
@@ -82,7 +75,7 @@ public class Conector {
      */
     private void configuraDB() throws SQLException, IOException {
         Statement st = this.conexion.createStatement();
-        st.executeUpdate(Archivos.leerScript(Scripts.CREA_DB.script()));
+        st.executeUpdate(Archivos.leerScript(Scripts.CREAR_DB));
         st.close();
     }
 

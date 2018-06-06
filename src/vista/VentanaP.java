@@ -6,6 +6,7 @@
 package vista;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import logica.VentanaLOG;
 
 /**
@@ -173,5 +174,9 @@ public class VentanaP extends javax.swing.JFrame {
 
     public String getDni(){
         return tfDni.getText();
+    }
+
+    public void error(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
     }
 }

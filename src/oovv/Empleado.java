@@ -3,12 +3,8 @@ package oovv;
 import excepciones.DatosIncorrectosEX;
 import util.DNI;
 
-public class Empleado {
+public class Empleado extends Persona{
 
-    private String nombre;
-    private String apellidos;
-    private String DNI;
-    private String telefono;
     private double sueldo;
     private Empleo empleo;
 

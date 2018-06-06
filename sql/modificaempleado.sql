@@ -1,7 +1,7 @@
-UPDATE 	cliente 
+UPDATE 	empleado
 SET 	nombre = ?,
 	apellidos = ?,
 	telefono = ?,
-	direccion = ?,
-	email = ?
+	sueldo = ?,
+	tipo = ?
 WHERE   dni = ?;
