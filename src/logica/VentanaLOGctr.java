@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import static java.time.Clock.system;
 import javax.swing.JOptionPane;
+import vista.Selecciona;
 import vista.Ventanactr;
 
 /**
@@ -19,8 +20,9 @@ import vista.Ventanactr;
 public class VentanaLOGctr implements ActionListener {
 
     private Ventanactr ventana;
-    private DatosLog cliDatos;
-    private DatosTrabLOG datosTrab;
+    private DatosClienteLOG cliDatos;
+    private SeleccionaLOG mod;
+    private DatosEmpleadoLOG datosTrab;
     private String nelimina;
     private Frame parent;
 
@@ -38,19 +40,19 @@ public class VentanaLOGctr implements ActionListener {
         switch (e.getActionCommand()) {
             case "añadir":
                 if (ventana.getControl().equals("cliente")) {
-                    cliDatos = new DatosLog(parent);
+                    cliDatos = new DatosClienteLOG(parent);
                 }
                 if (ventana.getControl().equals("trabajador")) {
-                    datosTrab = new DatosTrabLOG(parent);
+                    datosTrab = new DatosEmpleadoLOG(parent);
                 }
                 
                 break;
             case "modificar":
                 if (ventana.getControl().equals("cliente")) {
-                    cliDatos = new DatosLog(parent);
+                    mod = new SeleccionaLOG(parent, true);
                 }
                 if (ventana.getControl().equals("trabajador")) {
-                    datosTrab = new DatosTrabLOG(parent);
+                    mod = new SeleccionaLOG(parent, false);
                 }
                 
                 break;
