@@ -1,6 +1,6 @@
 package veterinario;
 
-import logica.VentanaLOG;
+import logica.VentanaLOGctr;
 
 public class Veterinario {
 
@@ -8,7 +8,7 @@ public class Veterinario {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new VentanaLOG();
+        new VentanaLOGctr();
     }
 
 }

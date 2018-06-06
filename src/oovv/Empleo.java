@@ -6,10 +6,10 @@ package oovv;
  */
 public enum Empleo {
 
-    VETERINARIO("Veterinario"),
-    ADMINISTRATIVO("Administrativo"),
-    AUXILIAR("Auxiliar"),
-    RECEPCIONISTA("Recepcionista");
+    VETERINARIO("VETERINARIO"),
+    ADMINISTRATIVO("ADMINISTRATIVO"),
+    AUXILIAR("AUXILIAR"),
+    RECEPCIONISTA("RECEPCIONISTA");
 
     private String empleo;
 
@@ -20,5 +20,6 @@ public enum Empleo {
     public String getEmpleo() {
         return empleo;
     }
+    
 
 }

@@ -5,13 +5,18 @@
  */
 package vista;
 
+import db.ClienteDB;
+import db.EmpleadoDB;
+import excepciones.DatosIncorrectosEX;
+import java.io.IOException;
+import java.sql.SQLException;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import logica.SeleccionaLOG;
 import oovv.Cliente;
 import oovv.Empleado;
-import oovv.NewClass;
 
 /**
  *
@@ -195,31 +200,44 @@ public class Selecciona extends javax.swing.JDialog {
     private javax.swing.JTextField tfBuscar;
     // End of variables declaration//GEN-END:variables
 
-
     public void setOyente(SeleccionaLOG aThis) {
-        JButton[] losBotones = {bBuscar,bCancelar,bSeleccionar};
+        JButton[] losBotones = {bBuscar, bCancelar, bSeleccionar};
         for (JButton boton : losBotones) {
             boton.addActionListener(aThis);
         }
+        cbInformacion.addActionListener(aThis);
     }
 
-    public void esCliente() {
+    public void esCliente() throws SQLException, DatosIncorrectosEX, IOException {
         jTitulo.setText("MODIFICA CLIENTE");
         jSeleccionar.setText("Seleccionar Cliente");
         DefaultComboBoxModel<Cliente> cbmcliente = new DefaultComboBoxModel<>();
         cbInformacion.setModel(cbmcliente);
+        for (Cliente cliente : ClienteDB.getClientes()) {
+            cbInformacion.addItem(cliente);
+        }
     }
 
-    public void esEmpleado() {
+    public void esEmpleado() throws SQLException, IOException, DatosIncorrectosEX {
         jTitulo.setText("MODIFICA EMPLEADO");
         jSeleccionar.setText("Seleccionar Empleado");
         DefaultComboBoxModel<Empleado> cbmEmpleado = new DefaultComboBoxModel<>();
         cbInformacion.setModel(cbmEmpleado);
+        for (Empleado empleado : EmpleadoDB.getEmpleados()) {
+            cbInformacion.addItem(empleado);
+        }
     }
 
     public String getBusqueda() {
         return tfBuscar.getText();
     }
-    
-    
+
+    public Cliente getClienteSeleccionado() {
+        return (Cliente) cbInformacion.getSelectedItem();
+    }
+
+    public Empleado getEmpleadoSeleccionado() {
+        return (Empleado) cbInformacion.getSelectedItem();
+    }
+
 }

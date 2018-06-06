@@ -61,7 +61,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="ValidarB" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="104" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="CancelarB" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -76,13 +76,13 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTeléfono" pref="114" max="32767" attributes="0"/>
+                              <Component id="jTeléfono" max="32767" attributes="0"/>
                               <Component id="jDNI" max="32767" attributes="0"/>
                               <Component id="jApellidos" max="32767" attributes="0"/>
                               <Component id="jNombre" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTipo" alignment="0" max="32767" attributes="0"/>
                               <Component id="jSueldo" alignment="0" max="32767" attributes="0"/>
                               <Component id="jContrato" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cbEmpleo" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -131,14 +131,14 @@
                           <Component id="jTeléfono" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="bTipo" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jTipo" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="cbEmpleo" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -189,13 +189,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTel&#xe9;fono">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aharoni" size="13" style="0"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTipo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Aharoni" size="13" style="0"/>
@@ -290,6 +283,21 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbEmpleo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="VETERINARIO"/>
+                <StringItem index="1" value="ADMINISTRATIVO"/>
+                <StringItem index="2" value="AUXILIAR"/>
+                <StringItem index="3" value="RECEPCIONISTA"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

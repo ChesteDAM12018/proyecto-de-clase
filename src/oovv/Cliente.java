@@ -2,7 +2,7 @@ package oovv;
 
 import excepciones.DatosIncorrectosEX;
 
-public class Cliente extends Persona{
+public class Cliente extends Persona {
 
     private String direccion;
     private String correo;
@@ -12,9 +12,7 @@ public class Cliente extends Persona{
 
     public Cliente(String DNI, String nombre, String apellidos, String direccion,
             String telefono, String correo) throws DatosIncorrectosEX {
-        if (!util.DNI.esDNI(DNI)) {
-            throw new DatosIncorrectosEX("El DNI introducido no es un DNI válido");
-        }
+
         this.DNI = DNI;
         this.nombre = nombre;
         this.apellidos = apellidos;

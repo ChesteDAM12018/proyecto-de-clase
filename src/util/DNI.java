@@ -1,5 +1,7 @@
 package util;
 
+import excepciones.DniIncorrectoEX;
+
 /**
  * Clase para funciones relacionadas con el dni
  *
@@ -18,8 +20,15 @@ public class DNI {
      * @param dni El dni que se quiere validar
      * @return Verdadero si es valido falso si no es valido
      */
-    public static boolean esDNI(String dni) {
-        return dni.matches("(?i)[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]") && calcularLetra(Integer.parseInt(dni.substring(0, 8))).equals(dni.charAt(8));
+    public static boolean esDNI(String dni) throws DniIncorrectoEX {
+
+        if (!dni.matches("(?i)[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]") && calcularLetra(Integer.parseInt(dni.substring(0, 8))).equals(dni.charAt(8))) {
+            throw new DniIncorrectoEX("El DNI deben ser 8 cifras y una letra");
+
+        } else {
+            return true;
+        }
+
     }
 
     /**

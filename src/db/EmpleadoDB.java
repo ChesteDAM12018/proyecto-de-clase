@@ -1,6 +1,7 @@
 package db;
 
 import excepciones.DatosIncorrectosEX;
+import excepciones.DniIncorrectoEX;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -59,9 +60,9 @@ public class EmpleadoDB {
      * @throws excepciones.DatosIncorrectosEX Si los datos que se han pasado no
      * son validos
      */
-    public static Empleado getEmpleado(String dni) throws SQLException, IOException, DatosIncorrectosEX {
+    public static Empleado getEmpleado(String dni) throws SQLException, IOException, DatosIncorrectosEX, DniIncorrectoEX {
         if (!DNI.esDNI(dni)) {
-            throw new DatosIncorrectosEX("El dni debe tener 8 números y 1 letra");
+            throw new DniIncorrectoEX("El dni debe tener 8 números y 1 letra");
         }
         Conector conector = new Conector(BasesDeDatos.PRUEBAS);
         PreparedStatement st = conector.getConexion().prepareStatement(Archivos.leerScript(Scripts.OBTENER_EMPLEADO));

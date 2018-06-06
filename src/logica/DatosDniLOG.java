@@ -31,7 +31,7 @@ public class DatosDniLOG implements ActionListener {
         switch (e.getActionCommand()) {
             case "Validar":
                     dni = ventana.getDni();
-                    ctl = new VentanaLOGctr(ventana);
+            //        ctl = new VentanaLOGctr(ventana);
                     System.out.println(dni);
                     System.exit(0);
                 break;

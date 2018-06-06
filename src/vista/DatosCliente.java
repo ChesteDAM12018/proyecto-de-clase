@@ -6,7 +6,9 @@
 package vista;
 
 import java.awt.event.ActionListener;
+import javax.swing.JDialog;
 import logica.DatosClienteLOG;
+import oovv.Cliente;
 
 /**
  *
@@ -20,6 +22,10 @@ public class DatosCliente extends javax.swing.JDialog {
     public DatosCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+
+    public DatosCliente(JDialog parent, boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -269,8 +275,8 @@ public class DatosCliente extends javax.swing.JDialog {
         return tfdireccion.getText();
     }
 
-    public int gettelefono() {
-        return Integer.parseInt(tftelefono.getText());
+    public String gettelefono() {
+        return tftelefono.getText();
     }
 
     public String getdni() {
@@ -278,7 +284,15 @@ public class DatosCliente extends javax.swing.JDialog {
     }
 
     public void setOyente(DatosClienteLOG oyente) {
-bvalidar.addActionListener((ActionListener) oyente);
-bcancelar.addActionListener((ActionListener) oyente);
+        bvalidar.addActionListener((ActionListener) oyente);
+        bcancelar.addActionListener((ActionListener) oyente);
+    }
+
+    public void setValores(Cliente cliente) {
+        tfnombre.setText(cliente.getNombre());
+        tfdireccion.setText(cliente.getDireccion());
+        tfcorreo.setText(cliente.getCorreo());
+        tfdni.setText(cliente.getDNI());
+        tftelefono.setText(cliente.getTelefono());
     }
 }

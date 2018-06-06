@@ -5,24 +5,32 @@
  */
 package logica;
 
+import excepciones.DatosIncorrectosEX;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+import oovv.Cliente;
+import oovv.Empleado;
 import vista.Selecciona;
 
 /**
  *
  * @author alumno1718
  */
-public class SeleccionaLOG implements ActionListener{
+public class SeleccionaLOG implements ActionListener {
 
     private Selecciona ventana;
-    private Frame parent;
-
-    public SeleccionaLOG(Frame parent,boolean esCliente) {
-        if(esCliente=true){
+   
+    private boolean esCliente;
+            
+    public SeleccionaLOG(Frame parent, boolean esCliente) throws SQLException, DatosIncorrectosEX, IOException {
+        this.esCliente = esCliente;
+        if (esCliente) {
             ventana.esCliente();
-        }else{
+        } else {
             ventana.esEmpleado();
         }
         ventana = new Selecciona(parent, true);
@@ -30,7 +38,7 @@ public class SeleccionaLOG implements ActionListener{
         ventana.setLocationRelativeTo(parent);
         ventana.setVisible(true);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
@@ -41,9 +49,16 @@ public class SeleccionaLOG implements ActionListener{
                 ventana.dispose();
                 break;
             case "Seleccionar":
-                
+                if(esCliente){
+                    
+                    new DatosClienteLOG(ventana, ventana.getClienteSeleccionado());
+                }else{
+                    
+                    new DatosEmpleadoLOG(ventana, ventana.getEmpleadoSeleccionado());
+                }
+                    
                 break;
         }
     }
-    
+
 }
