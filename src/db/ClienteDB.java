@@ -18,7 +18,6 @@ import util.DNI;
  *
  * @see oovv.Cliente
  * @version 1.0
- * @author Nico Tena
  */
 public class ClienteDB {
 
