@@ -9,7 +9,7 @@ import util.Archivos;
 /**
  * Clase para conectar a la base de datos
  *
- * @author Nico Tena, Alvaro
+ * @author Alvaro
  */
 public class Conector {
 
